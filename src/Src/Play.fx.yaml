@@ -3,6 +3,30 @@ Play As screen:
     LoadingSpinnerColor: =App.Theme.Colors.Primary
     OnVisible: =Select(Button1_7)
 
+    Audio1 As audioPlayback:
+        BorderColor: =App.Theme.Colors.Darker40
+        DisplayMode: =DisplayMode.View
+        Fill: =Color.White
+        Height: =40
+        Media: =If(aswered,'woo-hoo-82843','system-notification-4-206493')
+        Start: =rsound
+        Width: =140
+        X: =385
+        Y: =58
+        ZIndex: =1
+
+    Audio2 As audioPlayback:
+        BorderColor: =App.Theme.Colors.Darker40
+        DisplayMode: =DisplayMode.View
+        Fill: =Color.White
+        Height: =40
+        Media: ='piglevelwin2mp3-14800'
+        Start: =state="final"
+        Width: =153
+        X: =218
+        Y: =58
+        ZIndex: =2
+
     Button1_2 As button:
         BorderColor: =App.Theme.Colors.Primary
         Color: =App.Theme.Colors.PrimaryForeground
@@ -31,7 +55,7 @@ Play As screen:
         Width: =134
         X: =16
         Y: =715
-        ZIndex: =1
+        ZIndex: =3
 
     Slider1 As slider:
         BorderColor: =App.Theme.Colors.Darker40
@@ -46,7 +70,7 @@ Play As screen:
         Width: =723
         X: =27
         Y: =6
-        ZIndex: =3
+        ZIndex: =4
 
     "AnswerCards As gallery.'BrowseLayout_Horizontal_TwoTextOneImageVariant_ver5.0'":
         BorderColor: =App.Theme.Colors.Darker40
@@ -61,7 +85,7 @@ Play As screen:
         Width: =786
         X: =16
         Y: =409
-        ZIndex: =24
+        ZIndex: =5
 
         Image4 As image:
             BorderColor: =If(And(state="reward",ThisItem.correct),Color.Green, App.Theme.Colors.Lighter70)
@@ -130,7 +154,7 @@ Play As screen:
         Width: =572
         X: =102
         Y: =46
-        ZIndex: =26
+        ZIndex: =6
 
     Countdown As Text:
         Align: ='TextCanvas.Align'.Center
@@ -143,7 +167,7 @@ Play As screen:
         Width: =212
         X: =361
         Y: =181
-        ZIndex: =29
+        ZIndex: =7
 
     Admin_Sidebar As groupContainer.verticalAutoLayoutContainer:
         DropShadow: =DropShadow.Light
@@ -164,7 +188,7 @@ Play As screen:
         Width: =220
         X: =802
         Y: =6
-        ZIndex: =46
+        ZIndex: =8
 
         PieChart2_1 As pieChart:
             AlignInContainer: =AlignInContainer.Stretch
@@ -493,19 +517,6 @@ Play As screen:
             Y: =555
             ZIndex: =13
 
-    Audio1 As audioPlayback:
-        BorderColor: =App.Theme.Colors.Darker40
-        DisplayMode: =DisplayMode.View
-        Fill: =App.Theme.Colors.Primary
-        Height: =40
-        Media: =If(aswered,'woo-hoo-82843','system-notification-4-206493')
-        Start: =rsound
-        Visible: =is_admin
-        Width: =140
-        X: =333
-        Y: =715
-        ZIndex: =49
-
     Final As group:
         Height: =5
         Width: =5
@@ -523,7 +534,7 @@ Play As screen:
             Width: =558
             X: =165
             Y: =110
-            ZIndex: =47
+            ZIndex: =9
 
         Label2 As label:
             Align: =Align.Center
@@ -538,18 +549,5 @@ Play As screen:
             Width: =153
             X: =361
             Y: =536
-            ZIndex: =48
-
-    Audio2 As audioPlayback:
-        BorderColor: =App.Theme.Colors.Darker40
-        DisplayMode: =DisplayMode.View
-        Fill: =App.Theme.Colors.Primary
-        Height: =40
-        Media: ='piglevelwin2mp3-14800'
-        Start: =state="final"
-        Visible: =is_admin
-        Width: =153
-        X: =166
-        Y: =715
-        ZIndex: =50
+            ZIndex: =10
 
