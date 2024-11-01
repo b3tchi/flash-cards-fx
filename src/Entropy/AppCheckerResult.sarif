@@ -673,19 +673,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Play.Admin_Sidebar.Audio2.AccessibleLabel"
+                  "fullyQualifiedName": "Play.Audio1.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Play.Admin_Sidebar.Audio2.AccessibleLabel",
+                  "fullyQualifiedName": "Play.Audio1.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Play",
-                "type": "Play.Admin_Sidebar.Audio2"
+                "type": "Play.Audio1"
               }
             }
           ],
@@ -1092,19 +1092,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Play.Admin_Sidebar.Audio1.AccessibleLabel"
+                  "fullyQualifiedName": "Play.Audio2.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Play.Admin_Sidebar.Audio1.AccessibleLabel",
+                  "fullyQualifiedName": "Play.Audio2.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Play",
-                "type": "Play.Admin_Sidebar.Audio1"
+                "type": "Play.Audio2"
               }
             }
           ],
@@ -1416,6 +1416,36 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Welcome.Audio3.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Welcome.Audio3.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Welcome",
+                "type": "Welcome.Audio3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 3
         },
         {
           "locations": [

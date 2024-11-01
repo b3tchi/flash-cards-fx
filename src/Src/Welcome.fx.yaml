@@ -451,3 +451,12 @@ Welcome As screen:
                 Y: =152
                 ZIndex: =3
 
+    Audio3 As audioPlayback:
+        BorderColor: =App.Theme.Colors.Darker40
+        Fill: =App.Theme.Colors.Primary
+        Media: ='woo-hoo-82843'
+        Width: =279
+        X: =539
+        Y: =647
+        ZIndex: =21
+

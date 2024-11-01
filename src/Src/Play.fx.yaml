@@ -493,30 +493,18 @@ Play As screen:
             Y: =555
             ZIndex: =13
 
-        Audio1 As audioPlayback:
-            BorderColor: =App.Theme.Colors.Darker40
-            DisplayMode: =DisplayMode.View
-            Fill: =App.Theme.Colors.Primary
-            Height: =40
-            LayoutMinWidth: =50
-            Media: =If(aswered,'woo-hoo-82843','system-notification-4-206493')
-            Start: =rsound
-            Width: =222
-            X: =802
-            Y: =707
-            ZIndex: =14
-
-        Audio2 As audioPlayback:
-            BorderColor: =App.Theme.Colors.Darker40
-            DisplayMode: =DisplayMode.View
-            Fill: =App.Theme.Colors.Primary
-            Height: =40
-            LayoutMinWidth: =100
-            Media: ='piglevelwin2mp3-14800'
-            Start: =state="final"
-            X: =361
-            Y: =564
-            ZIndex: =15
+    Audio1 As audioPlayback:
+        BorderColor: =App.Theme.Colors.Darker40
+        DisplayMode: =DisplayMode.View
+        Fill: =App.Theme.Colors.Primary
+        Height: =40
+        Media: =If(aswered,'woo-hoo-82843','system-notification-4-206493')
+        Start: =rsound
+        Visible: =is_admin
+        Width: =140
+        X: =333
+        Y: =715
+        ZIndex: =49
 
     Final As group:
         Height: =5
@@ -551,4 +539,17 @@ Play As screen:
             X: =361
             Y: =536
             ZIndex: =48
+
+    Audio2 As audioPlayback:
+        BorderColor: =App.Theme.Colors.Darker40
+        DisplayMode: =DisplayMode.View
+        Fill: =App.Theme.Colors.Primary
+        Height: =40
+        Media: ='piglevelwin2mp3-14800'
+        Start: =state="final"
+        Visible: =is_admin
+        Width: =153
+        X: =166
+        Y: =715
+        ZIndex: =50
 
