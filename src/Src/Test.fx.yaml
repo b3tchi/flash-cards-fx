@@ -1,0 +1,90 @@
+Test As screen:
+    Fill: =Color.White
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
+
+    DataTable1 As dataTable.datatable:
+        BorderColor: =App.Theme.Colors.Darker40
+        BorderStyle: =BorderStyle.Solid
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(0, 0, 0, 0)
+        Font: =App.Theme.Font
+        FontWeight: =FontWeight.Normal
+        HeadingColor: =App.Theme.Colors.PrimaryForeground
+        HeadingFill: =App.Theme.Colors.Primary
+        HeadingFont: =App.Theme.Font
+        HeadingFontWeight: =FontWeight.Normal
+        HeadingSize: =13
+        Height: =500
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =App.Theme.Colors.Lighter80
+        InputFill: =RGBA(255, 255, 255, 1)
+        InvertedColor: =App.Theme.Colors.PrimaryForeground
+        Items: |-
+            =Sort(Table(FirstN(Sort(AddColumns(Filter(ShowColumns(Game,Card),cre55_cardid<>idx),Rand,RandBetween(1,100),Randx,RandBetween(1,100),Correct,0),Randx),2),{cre55_cardid:idx,Rand:RandBetween(1,100),Correct:1}),Rand)
+        LinkColor: =App.Theme.Colors.Lighter10
+        PrimaryColor1: =App.Theme.Colors.Primary
+        PrimaryColor2: =App.Theme.Colors.Darker30
+        PrimaryColor3: =App.Theme.Colors.Lighter70
+        SelectedColor: =RGBA(0, 0, 0, 1)
+        SelectedFill: =App.Theme.Colors.Lighter70
+        Size: =13
+        Width: =800
+        X: =40
+        Y: =40
+        ZIndex: =4
+
+        Correct_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Correct"
+            FieldName: ="Correct"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =3
+            Text: =ThisItem.Correct
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+        Rand_Column2 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Rand"
+            FieldName: ="Rand"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =2
+            Text: =ThisItem.Rand
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =2
+
+        cre55_cardid_Column2 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="cre55_cardid"
+            FieldName: ="cre55_cardid"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =1
+            Text: =ThisItem.cre55_cardid
+            Width: =379
+            X: =0
+            Y: =0
+            ZIndex: =3
+
+    ButtonCanvas3 As Button:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        OnSelect: |-
+            =UpdateContext({idx: Index(Game,3).Card})
+        Width: =96
+        X: =185
+        Y: =625
+        ZIndex: =5
+

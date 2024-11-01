@@ -1,0 +1,53 @@
+Screen1 As screen:
+    Fill: =Color.White
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
+
+    Component1_1 As _option:
+        Height: =284
+        Width: =326
+        X: =24
+        xIndex: =3
+
+    Component1_2 As _option:
+        Height: =273
+        Width: =348
+        X: =528
+        xIndex: =2
+        Y: =108
+        ZIndex: =2
+
+    Component1_3 As _option:
+        Height: =322
+        Width: =397
+        xIndex: |
+            =1
+        Y: =416
+        ZIndex: =3
+
+    TextCanvas1 As Text:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Text: =face
+        Width: =96
+        X: =552
+        Y: =416
+        ZIndex: =4
+
+    ButtonCanvas1 As Button:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        OnSelect: =
+        Width: =96
+        X: =572
+        Y: =572
+        ZIndex: =5
+
+    TextCanvas2 As Text:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Text: =Component1_1.xSmile
+        Width: =96
+        X: =492
+        Y: =428
+        ZIndex: =6
+

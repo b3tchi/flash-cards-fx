@@ -1,0 +1,478 @@
+Play As screen:
+    Fill: =Color.White
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
+    OnVisible: =Select(Button1_7)
+
+    Button1_2 As button:
+        BorderColor: =App.Theme.Colors.Primary
+        Color: =App.Theme.Colors.PrimaryForeground
+        DisabledBorderColor: =RGBA(244, 244, 244, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =App.Theme.Colors.Primary
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        Font: =App.Theme.Font
+        FontWeight: =FontWeight.Semibold
+        HoverBorderColor: =App.Theme.Colors.Darker10
+        HoverColor: =App.Theme.Colors.PrimaryForeground
+        HoverFill: =App.Theme.Colors.Darker10
+        OnSelect: =Navigate(Welcome)
+        PaddingRight: =3.75
+        PaddingTop: =3.75
+        PressedBorderColor: =App.Theme.Colors.Darker40
+        PressedColor: =Self.Color
+        PressedFill: =App.Theme.Colors.Darker40
+        RadiusBottomLeft: =8
+        RadiusBottomRight: =8
+        RadiusTopLeft: =8
+        RadiusTopRight: =8
+        Size: =15
+        Text: ="Back"
+        Width: =134
+        X: =16
+        Y: =715
+        ZIndex: =1
+
+    Slider1 As slider:
+        BorderColor: =App.Theme.Colors.Darker40
+        Default: =item
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        HandleFill: =RGBA(255, 255, 255, 1)
+        Max: =CountRows(Game)
+        Min: =1
+        RailFill: =RGBA(128, 130, 133, 1)
+        ShowValue: =false
+        ValueFill: =App.Theme.Colors.Primary
+        Width: =723
+        X: =27
+        Y: =6
+        ZIndex: =3
+
+    "Gallery6 As gallery.'BrowseLayout_Horizontal_TwoTextOneImageVariant_ver5.0'":
+        BorderColor: =App.Theme.Colors.Darker40
+        Default: ={}
+        DelayItemLoading: =true
+        Height: =306
+        Items: =Options
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplatePadding: =0
+        TemplateSize: =260
+        Visible: =Not(state in ["guess","countdown"])
+        Width: =786
+        X: =16
+        Y: =409
+        ZIndex: =24
+
+        Image4 As image:
+            BorderColor: =If(And(state="reward",ThisItem.correct),Color.Green, App.Theme.Colors.Lighter70)
+            BorderThickness: =2
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Height: =163
+            Image: =LookUp(Cards,Card = ThisItem.img).Side2.Full
+            ImagePosition: =ImagePosition.Fill
+            OnSelect: |-
+                =UpdateContext({aduration:0,aswered:ThisItem.correct})
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            Width: =Parent.Width/3-30
+            X: =15
+            Y: =29
+            ZIndex: =1
+
+        Title3 As label:
+            Color: =RGBA(50, 49, 48, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =App.Theme.Font
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =29
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.correct
+            VerticalAlign: =VerticalAlign.Top
+            Visible: =isAdmin
+            Width: =Parent.Width/3-30
+            X: =15
+            ZIndex: =2
+
+        Icon6 As icon.EmojiSad:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =App.Theme.Colors.Darker30
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            Height: =184
+            Icon: =If(ThisItem.correct,Icon.EmojiSmile,Icon.Reload)
+            OnSelect: =
+            Visible: =And(state="reward",ThisItem.IsSelected)
+            Width: =Parent.Width/3-30
+            X: =15
+            Y: =122
+            ZIndex: =3
+
+    Image2 As image:
+        BorderColor: =App.Theme.Colors.Lighter70
+        BorderThickness: =2
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Height: =378
+        Image: =Index(Game,item).Side1.Full
+        PressedBorderColor: =App.Theme.Colors.Lighter70
+        RadiusBottomLeft: =8
+        RadiusBottomRight: =8
+        RadiusTopLeft: =8
+        RadiusTopRight: =8
+        Visible: =Not(state in ["countdown", "load"])
+        Width: =572
+        X: =102
+        Y: =46
+        ZIndex: =26
+
+    TextCanvas3 As Text:
+        Align: ='TextCanvas.Align'.Center
+        DisplayMode: =DisplayMode.Edit
+        Height: =193
+        Size: =100
+        Text: =3-Int(countdown_timer.Value/1000)
+        VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
+        Visible: =state="countdown"
+        Width: =212
+        X: =361
+        Y: =181
+        ZIndex: =29
+
+    Container2 As groupContainer.verticalAutoLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Height: =762
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =5
+        LayoutMode: =LayoutMode.Auto
+        PaddingBottom: =5
+        PaddingLeft: =5
+        PaddingRight: =5
+        PaddingTop: =5
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Visible: =isAdmin
+        Width: =220
+        X: =802
+        Y: =6
+        ZIndex: =46
+
+        PieChart2_1 As pieChart:
+            AlignInContainer: =AlignInContainer.Stretch
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            Height: =127
+            ItemColorSet: =[ RGBA(94,193,108,1), RGBA(246,143,100,1)]
+            Items: |-
+                =Table({Value:learned,Label:"knowns"},{Value:totalItems-learned,Label:"unknowns"})
+            LayoutMinWidth: =100
+            ShowLabels: =false
+            Width: =30
+            X: =526
+            Y: =214
+            ZIndex: =1
+
+        Label4 As label:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =App.Theme.Font
+            Size: =13
+            Text: |-
+                ="state: " & state
+            X: =830
+            Y: =127
+            ZIndex: =2
+
+        Label4_2 As label:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =App.Theme.Font
+            Size: =13
+            Text: |-
+                ="next: " & 
+                item_next & ", total: " & totalItems & ", item: " & item
+            X: =830
+            Y: =167
+            ZIndex: =3
+
+        Label4_3 As label:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =App.Theme.Font
+            Size: =13
+            Text: |-
+                ="total: " & totalItems & ", learned: " & learned
+            X: =830
+            Y: =167
+            ZIndex: =4
+
+        countdown_timer As timer:
+            BorderColor: =App.Theme.Colors.Primary
+            Color: =App.Theme.Colors.PrimaryForeground
+            DisabledBorderColor: =RGBA(244, 244, 244, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Duration: =3000
+            Fill: =If(Self.Start, App.Theme.Colors.Primary,App.Theme.Colors.Lighter70)
+            Font: =App.Theme.Font
+            Height: =43
+            HoverBorderColor: =App.Theme.Colors.Darker10
+            HoverColor: =App.Theme.Colors.PrimaryForeground
+            HoverFill: =App.Theme.Colors.Darker10
+            OnTimerEnd: |-
+                =UpdateContext({state:"load"})
+            PressedBorderColor: =App.Theme.Colors.Darker40
+            PressedColor: =Self.Color
+            PressedFill: =App.Theme.Colors.Darker40
+            Start: =state="countdown"
+            Text: =Concatenate("countdown " , Self.Value , " ms")
+            Width: =212
+            X: =575
+            Y: =256
+            ZIndex: =5
+
+        load_timer As timer:
+            BorderColor: =App.Theme.Colors.Primary
+            Color: =App.Theme.Colors.PrimaryForeground
+            DisabledBorderColor: =RGBA(244, 244, 244, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Duration: =lduration
+            Fill: =If(Self.Start, App.Theme.Colors.Primary,App.Theme.Colors.Lighter70)
+            Font: =App.Theme.Font
+            Height: =43
+            HoverBorderColor: =App.Theme.Colors.Darker10
+            HoverColor: =App.Theme.Colors.PrimaryForeground
+            HoverFill: =App.Theme.Colors.Darker10
+            OnTimerEnd: |-
+                =UpdateContext({state:"guess",lduration:10000})
+            OnTimerStart: |-
+                =Clear(Options);
+                UpdateContext(
+                    {
+                        item:item_next,
+                        idx:Index(Game,item_next).Card
+                    }
+                );
+                Collect(
+                    Options,
+                    Sort(Table(FirstN(Sort(AddColumns(Filter(RenameColumns(ShowColumns(Game,Card),cre55_cardid,img),img<>idx),sort,RandBetween(1,100),Randx,RandBetween(1,100),correct,0),Randx),2),{img:idx,sort:RandBetween(1,100),correct:1}),sort)
+                );
+                Reset(Gallery6);
+                UpdateContext({lduration:0})
+            PressedBorderColor: =App.Theme.Colors.Darker40
+            PressedColor: =Self.Color
+            PressedFill: =App.Theme.Colors.Darker40
+            Start: =state="load"
+            Text: =Concatenate("load " , Self.Value , " ms")
+            Width: =212
+            X: =232
+            Y: =8
+            ZIndex: =6
+
+        guess_timer As timer:
+            BorderColor: =App.Theme.Colors.Primary
+            Color: =App.Theme.Colors.PrimaryForeground
+            DisabledBorderColor: =RGBA(244, 244, 244, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Duration: =3000
+            Fill: =If(Self.Start, App.Theme.Colors.Primary,App.Theme.Colors.Lighter70)
+            Font: =App.Theme.Font
+            Height: =42
+            HoverBorderColor: =App.Theme.Colors.Darker10
+            HoverColor: =App.Theme.Colors.PrimaryForeground
+            HoverFill: =App.Theme.Colors.Darker10
+            OnTimerEnd: |-
+                =UpdateContext({state:"answer"})
+            PressedBorderColor: =App.Theme.Colors.Darker40
+            PressedColor: =Self.Color
+            PressedFill: =App.Theme.Colors.Darker40
+            Start: =state="guess"
+            Text: =Concatenate("guess " , Self.Value , " ms")
+            Width: =210
+            X: =231
+            Y: =62
+            ZIndex: =7
+
+        answer_timer As timer:
+            BorderColor: =App.Theme.Colors.Primary
+            Color: =App.Theme.Colors.PrimaryForeground
+            DisabledBorderColor: =RGBA(244, 244, 244, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Duration: =aduration
+            Fill: =If(Self.Start, App.Theme.Colors.Primary,App.Theme.Colors.Lighter70)
+            Font: =App.Theme.Font
+            Height: =42
+            HoverBorderColor: =App.Theme.Colors.Darker10
+            HoverColor: =App.Theme.Colors.PrimaryForeground
+            HoverFill: =App.Theme.Colors.Darker10
+            OnSelect: |-
+                =UpdateContext({state:"aswer"})
+            OnTimerEnd: |-
+                =UpdateContext({aduration:60000,state:"reward",areset:true});UpdateContext({areset:false})
+            PressedBorderColor: =App.Theme.Colors.Darker40
+            PressedColor: =Self.Color
+            PressedFill: =App.Theme.Colors.Darker40
+            Reset: =areset
+            Start: =state="answer"
+            Text: =Concatenate("answer " , Self.Value , " ms")
+            Width: =210
+            X: =229
+            Y: =116
+            ZIndex: =8
+
+        reward_timer As timer:
+            BorderColor: =App.Theme.Colors.Primary
+            Color: =App.Theme.Colors.PrimaryForeground
+            DisabledBorderColor: =RGBA(244, 244, 244, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Duration: =If(aswered,1000,2000)
+            Fill: =If(Self.Start, App.Theme.Colors.Primary,App.Theme.Colors.Lighter70)
+            Font: =App.Theme.Font
+            Height: =41
+            HoverBorderColor: =App.Theme.Colors.Darker10
+            HoverColor: =App.Theme.Colors.PrimaryForeground
+            HoverFill: =App.Theme.Colors.Darker10
+            OnTimerEnd: =
+            OnTimerStart: |-
+                =Reset(Audio1);UpdateContext({rsound:false});UpdateContext({rsound:true})
+            PressedBorderColor: =App.Theme.Colors.Darker40
+            PressedColor: =Self.Color
+            PressedFill: =App.Theme.Colors.Darker40
+            Reset: =rreset
+            Start: =state="reward"
+            Text: =Concatenate("reward " , Self.Value , " ms")
+            Width: =212
+            X: =228
+            Y: =167
+            ZIndex: =9
+
+        save_timer As timer:
+            BorderColor: =App.Theme.Colors.Primary
+            Color: =App.Theme.Colors.PrimaryForeground
+            DisabledBorderColor: =RGBA(244, 244, 244, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Duration: =sduration
+            Fill: =If(Self.Start, App.Theme.Colors.Primary,App.Theme.Colors.Lighter70)
+            Font: =App.Theme.Font
+            Height: =41
+            HoverBorderColor: =App.Theme.Colors.Darker10
+            HoverColor: =App.Theme.Colors.PrimaryForeground
+            HoverFill: =App.Theme.Colors.Darker10
+            OnTimerEnd: |-
+                =UpdateContext({sduration:10000,state:"load",sreset:true,rreset:true});UpdateContext({sreset:false,rreset:false})
+            OnTimerStart: |-
+                =//save
+                UpdateContext({item_next:Mod(item,totalItems)+1,learned:learned+If(aswered,1,0)});
+                //decission logic end game ... tbd here
+                //set duration
+                UpdateContext({sduration:reward_timer.Duration})
+            PressedBorderColor: =App.Theme.Colors.Darker40
+            PressedColor: =Self.Color
+            PressedFill: =App.Theme.Colors.Darker40
+            Reset: =sreset
+            Start: =state="reward"
+            Text: =Concatenate("save " , Self.Value , " ms")
+            Width: =212
+            X: =227
+            Y: =217
+            ZIndex: =10
+
+        Rectangle5 As rectangle:
+            BorderColor: =App.Theme.Colors.Darker40
+            Fill: =Color.Transparent
+            Height: =20
+            LayoutMinWidth: =10
+            ZIndex: =11
+
+        Button1_6 As button:
+            BorderColor: =App.Theme.Colors.Primary
+            Color: =App.Theme.Colors.PrimaryForeground
+            DisabledBorderColor: =RGBA(244, 244, 244, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =App.Theme.Colors.Primary
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =App.Theme.Font
+            FontWeight: =FontWeight.Semibold
+            HoverBorderColor: =App.Theme.Colors.Darker10
+            HoverColor: =App.Theme.Colors.PrimaryForeground
+            HoverFill: =App.Theme.Colors.Darker10
+            OnSelect: |-
+                =UpdateContext({state:""})
+            PaddingRight: =3.75
+            PaddingTop: =3.75
+            PressedBorderColor: =App.Theme.Colors.Darker40
+            PressedColor: =Self.Color
+            PressedFill: =App.Theme.Colors.Darker40
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            Size: =15
+            Text: |-
+                ="Clear
+                "
+            Width: =134
+            X: =846
+            Y: =50
+            ZIndex: =12
+
+        Button1_7 As button:
+            BorderColor: =App.Theme.Colors.Primary
+            Color: =App.Theme.Colors.PrimaryForeground
+            DisabledBorderColor: =RGBA(244, 244, 244, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =App.Theme.Colors.Primary
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =App.Theme.Font
+            FontWeight: =FontWeight.Semibold
+            HoverBorderColor: =App.Theme.Colors.Darker10
+            HoverColor: =App.Theme.Colors.PrimaryForeground
+            HoverFill: =App.Theme.Colors.Darker10
+            OnSelect: |-
+                =UpdateContext({state:""});UpdateContext({state:"countdown",aduration:60000,lduration:10000,item_next:1,item:1,learned:0,totalItems:CountRows(Game)})
+            PaddingRight: =3.75
+            PaddingTop: =3.75
+            PressedBorderColor: =App.Theme.Colors.Darker40
+            PressedColor: =Self.Color
+            PressedFill: =App.Theme.Colors.Darker40
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            Size: =15
+            Text: ="Countdown"
+            Width: =134
+            X: =846
+            Y: =555
+            ZIndex: =13
+
+        Audio1 As audioPlayback:
+            BorderColor: =App.Theme.Colors.Darker40
+            Fill: =App.Theme.Colors.Primary
+            Height: =55
+            LayoutMinWidth: =50
+            Media: =If(aswered,'woo-hoo-82843','system-notification-4-206493')
+            Start: =rsound
+            Width: =222
+            X: =802
+            Y: =707
+            ZIndex: =14
+

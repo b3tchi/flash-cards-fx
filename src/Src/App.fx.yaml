@@ -1,0 +1,17 @@
+App As appinfo:
+    BackEnabled: =true
+    Formulas: |-
+        =adding(a:Number, b:Number):Number = a+b;
+        deviding(a:Number, b:Number):Number = a/b;
+        randRecord(col:UntypedObject):UntypedObject = Index(col,RandBetween(1,CountRows(col)));
+    OnStart: =
+    StartScreen: =Welcome
+    Theme: =PlatinumTheme
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+

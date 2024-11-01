@@ -1,0 +1,52 @@
+{
+  "QualifiedValues": [
+    {
+      "Kind": "default.cds_new_stat_forms",
+      "Namespace": "Stats (Forms)",
+      "Values": {
+        "Information": "762ddcf7-febd-4035-9163-857ac72bfd82"
+      }
+    },
+    {
+      "Kind": "default.cds_cre55_card_forms",
+      "Namespace": "Cards (Forms)",
+      "Values": {
+        "Information": "01f5df17-8f2a-4052-9807-b36c7b3ce4af"
+      }
+    },
+    {
+      "Kind": "default.cds_cre55_package_forms",
+      "Namespace": "Packages (Forms)",
+      "Values": {
+        "Information": "451adef0-ff81-4b1e-95f6-807fbbcaf7b7"
+      }
+    },
+    {
+      "Kind": "default.cds_activitypointer_forms",
+      "Namespace": "Aktivity (Forms)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_contact_forms",
+      "Namespace": "Kontakty (Forms)",
+      "Values": {
+        "Aktualizovat kontakt": "26843818-6508-4afe-9342-5fae2ebf15ca",
+        "Formulář karty kontaktu": "bc0f68dd-a4b1-4a8f-bed3-c8f5db2f89cf",
+        "Formulář karty Živá osoba": "449faa0e-f471-48ec-87d0-4719909546d2",
+        "Informace": "894cc46a-b0cb-4ab0-8bf6-200544e46a2d",
+        "Invite Web Form": "d6190b35-9474-4098-9698-33f6627eb3bf",
+        "karta kontaktu": "707fc57b-c5e6-471b-a180-e37ed28a38e2",
+        "karta kontaktu v\u00A0obchodním vztahu": "29de27bc-a257-4f29-99cf-bab4a84e688f",
+        "Kontakt": "1fed44d1-ae68-4a41-bd2b-f13acac4acfa",
+        "Nedávné případy a nároky": "f3b707fb-3b5f-45f9-9c6b-5e573bb5d19e",
+        "Panel odkazů kontaktu": "d880c3cf-80e2-42f3-82f9-24d040d09f17",
+        "Portal Contact (Enhanced)": "c1c97961-2d42-4103-abf8-2fe2bdf38224",
+        "Profile Web Form (Enhanced)": "bddc0100-0dbe-4562-aafe-31d08c8ab506",
+        "Profile Web Form (Enhanced) - Japanese": "01124dd8-9bff-4cc0-bb33-ea9d943c3f9f",
+        "Profily v sociálních sítích": "7bb87dfd-ec3e-4ed9-8e3e-5725d3067295",
+        "Stručný formulář kontaktu": "bdb0ae1c-32fa-4374-b637-8dafe107bc44",
+        "Vytvořit kontakt": "661157fe-2fc9-4eaa-835f-5bfa2f7b64f7"
+      }
+    }
+  ]
+}

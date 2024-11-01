@@ -1,0 +1,103 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cre55_cards",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cre55_card",
+    "MaxGetRowsCount": 500,
+    "Name": "Cards",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cre55_card_AsyncOperations": "System Jobs",
+      "cre55_card_BulkDeleteFailures": "Bulk Delete Failures",
+      "cre55_card_DuplicateBaseRecord": "Duplicate Records (cre55_card_DuplicateBaseRecord)",
+      "cre55_card_DuplicateMatchingRecord": "Duplicate Records (cre55_card_DuplicateMatchingRecord)",
+      "cre55_card_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cre55_card_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cre55_card_ProcessSession": "Process Sessions",
+      "cre55_card_SyncErrors": "Sync Errors",
+      "cre55_cardid": "Card",
+      "cre55_name": "Name",
+      "cre55_Package": "Package",
+      "cre55_side1": "Side1",
+      "cre55_side1id": "cre55_Side1Id",
+      "cre55_side2": "Side2",
+      "cre55_side2id": "cre55_Side2Id",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "new_Stat_cre55_Card_cre55_Card": "Stats",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Cards",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Cards (Views)",
+    "Name": "_cre55_card_views",
+    "RelatedEntityName": "Cards",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "4f040e13-1c4c-405b-a8e1-d3f5caa5e786": "Card Advanced Find View",
+      "5a1865d7-7b36-4793-9251-d1f3d4422cb7": "Card Lookup View",
+      "99dbd0d8-679f-478c-b90a-a7b99d694f96": "Card Associated View",
+      "a43cfb17-6f68-45e9-956f-b1ccf8fd0157": "Active Cards",
+      "d0c3e448-77b8-4398-8eb9-b23a30a7c089": "Inactive Cards"
+    }
+  },
+  {
+    "DisplayName": "Status (Cards)",
+    "Name": "cre55_card_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Cards"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Cards",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Cards)",
+    "Name": "cre55_card_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Cards"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Cards",
+    "Type": "OptionSetInfo"
+  }
+]

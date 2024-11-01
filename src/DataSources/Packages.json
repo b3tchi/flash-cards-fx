@@ -1,0 +1,98 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cre55_packages",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cre55_package",
+    "MaxGetRowsCount": 500,
+    "Name": "Packages",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cre55_Card_cre55_Package_cre55_Package": "Cards",
+      "cre55_name": "Name",
+      "cre55_package_AsyncOperations": "System Jobs",
+      "cre55_package_BulkDeleteFailures": "Bulk Delete Failures",
+      "cre55_package_DuplicateBaseRecord": "Duplicate Records (cre55_package_DuplicateBaseRecord)",
+      "cre55_package_DuplicateMatchingRecord": "Duplicate Records (cre55_package_DuplicateMatchingRecord)",
+      "cre55_package_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cre55_package_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cre55_package_ProcessSession": "Process Sessions",
+      "cre55_package_SyncErrors": "Sync Errors",
+      "cre55_packageid": "Package",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Packages",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Packages (Views)",
+    "Name": "_cre55_package_views",
+    "RelatedEntityName": "Packages",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "41b87c07-9853-493a-82e6-334c9701a29b": "Inactive Packages",
+      "68fb923c-a176-4dde-80af-45327d47664d": "Package Associated View",
+      "7aa6dee9-00ea-45b1-9f86-6de88b15b395": "Package Lookup View",
+      "a2174b41-3af2-4336-a328-742788f9430d": "Active Packages",
+      "b74d271a-81c2-4e2f-83ee-2b03644fd46d": "Package Advanced Find View"
+    }
+  },
+  {
+    "DisplayName": "Status (Packages)",
+    "Name": "cre55_package_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Packages"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Packages",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Packages)",
+    "Name": "cre55_package_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Packages"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Packages",
+    "Type": "OptionSetInfo"
+  }
+]

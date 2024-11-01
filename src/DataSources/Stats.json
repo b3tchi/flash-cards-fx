@@ -1,0 +1,98 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "new_stats",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "new_stat",
+    "Name": "Stats",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "new_cre55_Card": "Card",
+      "new_level": "Level",
+      "new_name": "Name",
+      "new_stat_AsyncOperations": "System Jobs",
+      "new_stat_BulkDeleteFailures": "Bulk Delete Failures",
+      "new_stat_DuplicateBaseRecord": "Duplicate Records (new_stat_DuplicateBaseRecord)",
+      "new_stat_DuplicateMatchingRecord": "Duplicate Records (new_stat_DuplicateMatchingRecord)",
+      "new_stat_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "new_stat_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "new_stat_ProcessSession": "Process Sessions",
+      "new_stat_SyncErrors": "Sync Errors",
+      "new_statid": "Stat",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Stats",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Stats (Views)",
+    "Name": "_new_stat_views",
+    "RelatedEntityName": "Stats",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "05d23347-9854-4505-9492-9421317db190": "Stat Lookup View",
+      "24c19bcd-6063-48a7-a0bc-468a63616f0c": "Active Stats",
+      "29d7384e-dde9-4d28-ad43-3a3d4271b8a5": "Stat Advanced Find View",
+      "59607d60-d6e2-4b5a-835c-f0434be8ed88": "Inactive Stats",
+      "9577d654-a7d4-4d18-86fc-64b2a8fcbce5": "Stat Associated View"
+    }
+  },
+  {
+    "DisplayName": "Status (Stats)",
+    "Name": "new_stat_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Stats"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Stats",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Stats)",
+    "Name": "new_stat_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Stats"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Stats",
+    "Type": "OptionSetInfo"
+  }
+]
