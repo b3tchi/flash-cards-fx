@@ -377,13 +377,15 @@ Play As screen:
             OnTimerEnd: |-
                 =UpdateContext({sduration:10000,state:"load",sreset:true,rreset:true});UpdateContext({sreset:false,rreset:false})
             OnTimerStart: |-
-                =//save
-                If(aswered,Remove(Game,First(Game)),Remove(Table(Game,First(Game)),First(Game));
+                =//decission logic end game ... tbd here
                 
+                //appending first record to after collection same as rotating flash cards in the package
+                If(aswered,Remove(Game,First(Game)),Remove(Table(Game,First(Game)),First(Game)));
+                
+                //Track succesfull .. tbd here
                 //UpdateContext({item_next:Mod(item,totalItems)+1,learned:learned+If(aswered,1,0)});
                 UpdateContext({item_next:1,learned:learned+If(aswered,1,0)});
                 
-                //decission logic end game ... tbd here
                 //set duration
                 UpdateContext({sduration:reward_timer.Duration})
             PressedBorderColor: =App.Theme.Colors.Darker40
