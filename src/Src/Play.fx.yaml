@@ -48,7 +48,7 @@ Play As screen:
         Y: =6
         ZIndex: =3
 
-    "Gallery6 As gallery.'BrowseLayout_Horizontal_TwoTextOneImageVariant_ver5.0'":
+    "AnswerCards As gallery.'BrowseLayout_Horizontal_TwoTextOneImageVariant_ver5.0'":
         BorderColor: =App.Theme.Colors.Darker40
         Default: ={}
         DelayItemLoading: =true
@@ -57,7 +57,7 @@ Play As screen:
         LoadingSpinner: =LoadingSpinner.Data
         TemplatePadding: =0
         TemplateSize: =260
-        Visible: =Not(state in ["guess","countdown"])
+        Visible: =Not(state in ["guess","countdown","final"])
         Width: =786
         X: =16
         Y: =409
@@ -95,7 +95,7 @@ Play As screen:
             PaddingTop: =0
             Text: =ThisItem.correct
             VerticalAlign: =VerticalAlign.Top
-            Visible: =isAdmin
+            Visible: =is_admin
             Width: =Parent.Width/3-30
             X: =15
             ZIndex: =2
@@ -114,25 +114,25 @@ Play As screen:
             Y: =122
             ZIndex: =3
 
-    Image2 As image:
+    QuestionCard As image:
         BorderColor: =App.Theme.Colors.Lighter70
         BorderThickness: =2
         DisabledBorderColor: =RGBA(166, 166, 166, 1)
         DisabledFill: =RGBA(244, 244, 244, 1)
         Height: =378
-        Image: =Index(Game,item).Side1.Full
+        Image: =If(CountRows(Game)>0,Index(Game,item).Side1.Full,Blank())
         PressedBorderColor: =App.Theme.Colors.Lighter70
         RadiusBottomLeft: =8
         RadiusBottomRight: =8
         RadiusTopLeft: =8
         RadiusTopRight: =8
-        Visible: =Not(state in ["countdown", "load"])
+        Visible: =Not(state in ["countdown", "load", "final"])
         Width: =572
         X: =102
         Y: =46
         ZIndex: =26
 
-    TextCanvas3 As Text:
+    Countdown As Text:
         Align: ='TextCanvas.Align'.Center
         DisplayMode: =DisplayMode.Edit
         Height: =193
@@ -145,7 +145,7 @@ Play As screen:
         Y: =181
         ZIndex: =29
 
-    Container2 As groupContainer.verticalAutoLayoutContainer:
+    Admin_Sidebar As groupContainer.verticalAutoLayoutContainer:
         DropShadow: =DropShadow.Light
         Height: =762
         LayoutAlignItems: =LayoutAlignItems.Stretch
@@ -160,7 +160,7 @@ Play As screen:
         RadiusBottomRight: =4
         RadiusTopLeft: =4
         RadiusTopRight: =4
-        Visible: =isAdmin
+        Visible: =is_admin
         Width: =220
         X: =802
         Y: =6
@@ -172,7 +172,7 @@ Play As screen:
             Height: =127
             ItemColorSet: =[ RGBA(94,193,108,1), RGBA(246,143,100,1)]
             Items: |-
-                =Table({Value:learned,Label:"knowns"},{Value:totalItems-learned,Label:"unknowns"})
+                =Table({Value:learned_count,Label:"knowns"},{Value:total_items-learned_count,Label:"unknowns"})
             LayoutMinWidth: =100
             ShowLabels: =false
             Width: =30
@@ -187,7 +187,7 @@ Play As screen:
             Font: =App.Theme.Font
             Size: =13
             Text: |-
-                ="total: " & totalItems & ", learned: " & learned
+                ="total: " & total_items & ", learned: " & learned_count
             X: =830
             Y: =167
             ZIndex: =2
@@ -226,7 +226,7 @@ Play As screen:
             Duration: =3000
             Fill: =If(Self.Start, App.Theme.Colors.Primary,App.Theme.Colors.Lighter70)
             Font: =App.Theme.Font
-            Height: =43
+            Height: =35
             HoverBorderColor: =App.Theme.Colors.Darker10
             HoverColor: =App.Theme.Colors.PrimaryForeground
             HoverFill: =App.Theme.Colors.Darker10
@@ -251,7 +251,7 @@ Play As screen:
             Duration: =lduration
             Fill: =If(Self.Start, App.Theme.Colors.Primary,App.Theme.Colors.Lighter70)
             Font: =App.Theme.Font
-            Height: =43
+            Height: =35
             HoverBorderColor: =App.Theme.Colors.Darker10
             HoverColor: =App.Theme.Colors.PrimaryForeground
             HoverFill: =App.Theme.Colors.Darker10
@@ -262,14 +262,14 @@ Play As screen:
                 UpdateContext(
                     {
                         item:item_next,
-                        idx:Index(Game,item_next).Card
+                        idx:If(CountRows(Game)>0,Index(Game,item_next).Card,Blank())
                     }
                 );
                 Collect(
                     Options,
-                    Sort(Table(FirstN(Sort(AddColumns(Filter(RenameColumns(ShowColumns(Game,Card),cre55_cardid,img),img<>idx),sort,RandBetween(1,100),Randx,RandBetween(1,100),correct,0),Randx),2),{img:idx,sort:RandBetween(1,100),correct:1}),sort)
+                    Sort(Table(FirstN(Sort(AddColumns(Filter(RenameColumns(ShowColumns(LearnPackage,Card),cre55_cardid,img),img<>idx),sort,RandBetween(1,100),Randx,RandBetween(1,100),correct,0),Randx),2),{img:idx,sort:RandBetween(1,100),correct:1}),sort)
                 );
-                Reset(Gallery6);
+                Reset(AnswerCards);
                 UpdateContext({lduration:0})
             PressedBorderColor: =App.Theme.Colors.Darker40
             PressedColor: =Self.Color
@@ -290,7 +290,7 @@ Play As screen:
             Duration: =3000
             Fill: =If(Self.Start, App.Theme.Colors.Primary,App.Theme.Colors.Lighter70)
             Font: =App.Theme.Font
-            Height: =42
+            Height: =35
             HoverBorderColor: =App.Theme.Colors.Darker10
             HoverColor: =App.Theme.Colors.PrimaryForeground
             HoverFill: =App.Theme.Colors.Darker10
@@ -315,7 +315,7 @@ Play As screen:
             Duration: =aduration
             Fill: =If(Self.Start, App.Theme.Colors.Primary,App.Theme.Colors.Lighter70)
             Font: =App.Theme.Font
-            Height: =42
+            Height: =35
             HoverBorderColor: =App.Theme.Colors.Darker10
             HoverColor: =App.Theme.Colors.PrimaryForeground
             HoverFill: =App.Theme.Colors.Darker10
@@ -343,7 +343,7 @@ Play As screen:
             Duration: =If(aswered,1000,2000)
             Fill: =If(Self.Start, App.Theme.Colors.Primary,App.Theme.Colors.Lighter70)
             Font: =App.Theme.Font
-            Height: =41
+            Height: =35
             HoverBorderColor: =App.Theme.Colors.Darker10
             HoverColor: =App.Theme.Colors.PrimaryForeground
             HoverFill: =App.Theme.Colors.Darker10
@@ -370,21 +370,28 @@ Play As screen:
             Duration: =sduration
             Fill: =If(Self.Start, App.Theme.Colors.Primary,App.Theme.Colors.Lighter70)
             Font: =App.Theme.Font
-            Height: =41
+            Height: =35
             HoverBorderColor: =App.Theme.Colors.Darker10
             HoverColor: =App.Theme.Colors.PrimaryForeground
             HoverFill: =App.Theme.Colors.Darker10
             OnTimerEnd: |-
-                =UpdateContext({sduration:10000,state:"load",sreset:true,rreset:true});UpdateContext({sreset:false,rreset:false})
+                =If(
+                    CountRows(Game) = 0,
+                    UpdateContext({state: "final"}),
+                    UpdateContext({state: "load"})
+                );
+                UpdateContext({ sduration: 10000, sreset: true, rreset: true });
+                UpdateContext({ sreset: false, rreset: false })
             OnTimerStart: |-
                 =//decission logic end game ... tbd here
                 
-                //appending first record to after collection same as rotating flash cards in the package
-                If(aswered,Remove(Game,First(Game)),Remove(Table(Game,First(Game)),First(Game)));
+                //appending first record to end of collection same as rotating flash cards in the package
+                If(Not(aswered),Collect(Game,First(Game)),Collect(Learned,First(Game)));
+                Remove(Game,First(Game));
                 
                 //Track succesfull .. tbd here
                 //UpdateContext({item_next:Mod(item,totalItems)+1,learned:learned+If(aswered,1,0)});
-                UpdateContext({item_next:1,learned:learned+If(aswered,1,0)});
+                UpdateContext({item_next:1,learned_count:learned_count+If(aswered,1,0)});
                 
                 //set duration
                 UpdateContext({sduration:reward_timer.Duration})
@@ -453,7 +460,23 @@ Play As screen:
             HoverColor: =App.Theme.Colors.PrimaryForeground
             HoverFill: =App.Theme.Colors.Darker10
             OnSelect: |-
-                =UpdateContext({state:""});UpdateContext({state:"countdown",aduration:60000,lduration:10000,item_next:1,item:1,learned:0,totalItems:CountRows(Game)})
+                =ClearCollect(
+                    Game,
+                    LearnPackage
+                );
+                Clear(Learned);
+                UpdateContext({state: ""});
+                UpdateContext(
+                    {
+                        state: "countdown",
+                        aduration: 60000,
+                        lduration: 10000,
+                        item_next: 1,
+                        item: 1,
+                        learned_count: 0,
+                        total_items: CountRows(Game)
+                    }
+                )
             PaddingRight: =3.75
             PaddingTop: =3.75
             PressedBorderColor: =App.Theme.Colors.Darker40
@@ -472,8 +495,9 @@ Play As screen:
 
         Audio1 As audioPlayback:
             BorderColor: =App.Theme.Colors.Darker40
+            DisplayMode: =DisplayMode.View
             Fill: =App.Theme.Colors.Primary
-            Height: =55
+            Height: =40
             LayoutMinWidth: =50
             Media: =If(aswered,'woo-hoo-82843','system-notification-4-206493')
             Start: =rsound
@@ -481,4 +505,50 @@ Play As screen:
             X: =802
             Y: =707
             ZIndex: =14
+
+        Audio2 As audioPlayback:
+            BorderColor: =App.Theme.Colors.Darker40
+            DisplayMode: =DisplayMode.View
+            Fill: =App.Theme.Colors.Primary
+            Height: =40
+            LayoutMinWidth: =100
+            Media: ='piglevelwin2mp3-14800'
+            Start: =state="final"
+            X: =361
+            Y: =564
+            ZIndex: =15
+
+    Final As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =49
+
+        Icon3 As Icon:
+            DisplayMode: =DisplayMode.Edit
+            Height: =454
+            Icon: ="CheckmarkCircle"
+            IconColor: =RGBA(152, 208, 70, 1)
+            IconStyle: ='Icon.IconStyle'.Filled
+            Visible: =state = "final"
+            Width: =558
+            X: =165
+            Y: =110
+            ZIndex: =47
+
+        Label2 As label:
+            Align: =Align.Center
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =App.Theme.Font
+            Height: =67
+            Size: =40
+            Text: =total_items & " / " & learned_count
+            Visible: =state = "final"
+            Width: =153
+            X: =361
+            Y: =536
+            ZIndex: =48
 
