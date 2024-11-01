@@ -180,31 +180,6 @@ Play As screen:
             Y: =214
             ZIndex: =1
 
-        Label4 As label:
-            BorderColor: =App.Theme.Colors.Darker40
-            Color: =RGBA(0, 0, 0, 1)
-            DisabledColor: =RGBA(166, 166, 166, 1)
-            Font: =App.Theme.Font
-            Size: =13
-            Text: |-
-                ="state: " & state
-            X: =830
-            Y: =127
-            ZIndex: =2
-
-        Label4_2 As label:
-            BorderColor: =App.Theme.Colors.Darker40
-            Color: =RGBA(0, 0, 0, 1)
-            DisabledColor: =RGBA(166, 166, 166, 1)
-            Font: =App.Theme.Font
-            Size: =13
-            Text: |-
-                ="next: " & 
-                item_next & ", total: " & totalItems & ", item: " & item
-            X: =830
-            Y: =167
-            ZIndex: =3
-
         Label4_3 As label:
             BorderColor: =App.Theme.Colors.Darker40
             Color: =RGBA(0, 0, 0, 1)
@@ -215,6 +190,31 @@ Play As screen:
                 ="total: " & totalItems & ", learned: " & learned
             X: =830
             Y: =167
+            ZIndex: =2
+
+        Label4_2 As label:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =App.Theme.Font
+            Size: =13
+            Text: |-
+                ="next: " & 
+                item_next & ", item: " & item
+            X: =830
+            Y: =167
+            ZIndex: =3
+
+        Label4 As label:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =App.Theme.Font
+            Size: =13
+            Text: |-
+                ="state: " & state
+            X: =830
+            Y: =127
             ZIndex: =4
 
         countdown_timer As timer:
