@@ -378,7 +378,11 @@ Play As screen:
                 =UpdateContext({sduration:10000,state:"load",sreset:true,rreset:true});UpdateContext({sreset:false,rreset:false})
             OnTimerStart: |-
                 =//save
-                UpdateContext({item_next:Mod(item,totalItems)+1,learned:learned+If(aswered,1,0)});
+                If(aswered,Remove(Game,First(Game)),Remove(Table(Game,First(Game)),First(Game));
+                
+                //UpdateContext({item_next:Mod(item,totalItems)+1,learned:learned+If(aswered,1,0)});
+                UpdateContext({item_next:1,learned:learned+If(aswered,1,0)});
+                
                 //decission logic end game ... tbd here
                 //set duration
                 UpdateContext({sduration:reward_timer.Duration})
